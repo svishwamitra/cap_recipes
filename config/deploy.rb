@@ -1,13 +1,16 @@
 require "bundler/capistrano"
 
 load "config/recipes/base"
-load "config/recipes/nginx"
-load "config/recipes/unicorn"
-load "config/recipes/postgresql"
 load "config/recipes/rvm"
+load "config/recipes/passenger"
+
+load "config/recipes/postgresql"
+
 load "config/recipes/git"
 load "config/recipes/check"
 load "config/recipes/delayed"
+# load "config/recipes/nginx"
+# load "config/recipes/unicorn"
 
 server "ec2-23-21-23-192.compute-1.amazonaws.com", :app, :web
 server "ec2-23-21-23-192.compute-1.amazonaws.com", :db, :primary => true

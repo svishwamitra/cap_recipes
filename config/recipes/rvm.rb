@@ -3,7 +3,7 @@ set_default :ruby_version, "1.8.7"
 namespace :rvm do
   desc "Install Rvm, Ruby, and the Bundler gem"
   task :install, :roles => :app do
-    run "curl -L https://get.rvm.io | bash"
+    run "curl -L https://get.rvm.io | bash -s stable"
     bashrc = <<-BASHRC
      	if [ -d $HOME/.rvm ]; then 
        	export PATH="$HOME/.rvm/bin:$PATH" 
@@ -31,7 +31,7 @@ namespace :rvm do
     system "gem install bundler --no-ri --no-rdoc"
   end
 
-  after "deploy:install", "rvm:install"#, "rvm:install_bundler"
+  after "deploy:install", "rvm:install"
   after "rvm:install", "rvm:install_ruby"
   after "rvm:install_ruby", "rvm:install_bundler"
 end
