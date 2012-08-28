@@ -22,7 +22,6 @@ set :use_sudo, false
 set :server_name_nginx, "compliancemanageronline.com"
 
 set :scm, "git"
-set :scm_password, "Git@123"
 set :repository, "git@github.com:svishwamitra/ces.git"
 set :branch do
   default_tag = 'git tag'.split("\n").last
