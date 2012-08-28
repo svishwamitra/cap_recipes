@@ -8,4 +8,7 @@ namespace :passenger do
 	task :install_nginx do 
 		run "#{rvmsudo} passenger-install-nginx-module"
 	end
+
+	after "deploy:install", "passenger:install"
+	after "passenger:install", "passenger:install_nginx"
 end

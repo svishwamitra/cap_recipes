@@ -3,12 +3,11 @@ require "bundler/capistrano"
 load "config/recipes/base"
 load "config/recipes/rvm"
 load "config/recipes/passenger"
-
 load "config/recipes/postgresql"
-
-load "config/recipes/git"
+load "config/recipes/redis"
 load "config/recipes/check"
 load "config/recipes/delayed"
+#load "config/recipes/git"
 # load "config/recipes/nginx"
 # load "config/recipes/unicorn"
 
