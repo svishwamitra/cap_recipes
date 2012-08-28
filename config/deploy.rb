@@ -12,8 +12,8 @@ load "config/recipes/delayed"
 # load "config/recipes/nginx"
 # load "config/recipes/unicorn"
 
-server "ec2-23-20-141-55.compute-1.amazonaws.com", :app, :web
-server "ec2-23-20-141-55.compute-1.amazonaws.com", :db, :primary => true
+server "ec2-184-72-187-219.compute-1.amazonaws.com", :app, :web
+server "ec2-184-72-187-219.compute-1.amazonaws.com", :db, :primary => true
 #set :port, 300
 
 #set :rvm_ruby_string, 'ree@rails2.3.14'
@@ -58,8 +58,7 @@ namespace :deploy do
     end
 end
 
-after  'deploy:create_symlink', 'deploy:symlink_shared'
-after  "deploy", "deploy:migrate"
-before "deploy:install", "rvm:install_rvm"
+after 'deploy:create_symlink', 'deploy:symlink_shared'
+after "deploy", "deploy:migrate"
 #after "deploy:install", "rvm:install_rvm", "rvm:install_ruby"
 
