@@ -2,7 +2,7 @@ require "bundler/capistrano"
 require "rvm/capistrano"
 
 load "config/recipes/base"
-load "config/recipes/rvm"
+load "config/recipes/ree"
 load "config/recipes/passenger"
 load "config/recipes/postgresql"
 load "config/recipes/redis"

@@ -1,12 +1,12 @@
 namespace :passenger do
 	desc "Install the passenger gem"
-	task :install do
+	task :install, :roles => :web do
 		run "rvm ree"
 		run "gem install passenger"
 	end
 
 	desc "Install nginx through passenger"
-	task :install_nginx do 
+	task :install_nginx, :roles => :web do 
 		#run "#{rvmsudo} passenger-install-nginx-module"
 	end
 

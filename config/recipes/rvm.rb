@@ -19,12 +19,12 @@ namespace :rvm do
   end
   
   desc "Install rvm readline package"
-  task :install_pkg do
+  task :install_pkg, :roles => :web do
     run "rvm pkg install readline"
   end
 
   desc "Install Ruby"
-  task :install_ruby do 
+  task :install_ruby, :roles => :web do 
   	#run "exec /home/#{user}/.rvm/scripts/rvm"
   	run "rvm install #{ruby_version}"
   end
@@ -37,6 +37,7 @@ namespace :rvm do
   end
 
   after "deploy:install", "rvm:install"
-  after "rvm:install", "rvm:install_ruby"
+  after "rvm:install", "rvm:install_pkg"
+  after "rvm:install_pkg", "rvm:install_ruby"
   after "rvm:install_ruby", "rvm:install_bundler"
 end
