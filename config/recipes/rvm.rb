@@ -3,7 +3,7 @@ set_default :ruby_version, "ree"
 namespace :rvm do
   desc "Install Rvm, Ruby, and the Bundler gem"
   task :install, :roles => :app do
-    "rvm:install_rvm"
+    # "rvm:install_rvm"
     # run "curl -L https://get.rvm.io | bash -s stable"
     # bashrc = <<-BASHRC
     #  	if [ -d $HOME/.rvm ]; then 

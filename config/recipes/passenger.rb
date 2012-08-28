@@ -7,7 +7,7 @@ namespace :passenger do
 
 	desc "Install nginx through passenger"
 	task :install_nginx do 
-		run "#{rvmsudo} passenger-install-nginx-module"
+		#run "#{rvmsudo} passenger-install-nginx-module"
 	end
 
 	after "deploy:install", "passenger:install"
