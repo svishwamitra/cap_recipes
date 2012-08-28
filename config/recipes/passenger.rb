@@ -1,6 +1,7 @@
 namespace :passenger do
 	desc "Install the passenger gem"
 	task :install do
+		run "rvm ree"
 		run "gem install passenger"
 	end
 

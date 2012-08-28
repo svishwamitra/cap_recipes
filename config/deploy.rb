@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require "rvm/capistrano"
 
 load "config/recipes/base"
 load "config/recipes/rvm"
@@ -11,10 +12,13 @@ load "config/recipes/delayed"
 # load "config/recipes/nginx"
 # load "config/recipes/unicorn"
 
-server "ec2-23-21-23-192.compute-1.amazonaws.com", :app, :web
-server "ec2-23-21-23-192.compute-1.amazonaws.com", :db, :primary => true
+server "ec2-184-72-187-219.compute-1.amazonaws.com", :app, :web
+server "ec2-184-72-187-219.compute-1.amazonaws.com", :db, :primary => true
 #set :port, 300
 
+#set :rvm_ruby_string, 'ree@rails2.3.14'
+set :rvm_type, :user
+set :rvm_install_with_sudo, true
 
 set :user, "ubuntu"
 set :application, "ces"
