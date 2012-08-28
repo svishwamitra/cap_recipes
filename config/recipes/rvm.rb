@@ -17,6 +17,10 @@ namespace :rvm do
     #run "exec /home/#{user}/.rvm/scripts/rvm"
   end
   
+  desc "Install rvm readline package"
+  task :install_pkg do
+    system "rvm pkg install readline"
+  end
 
   desc "Install Ruby"
   task :install_ruby do 
