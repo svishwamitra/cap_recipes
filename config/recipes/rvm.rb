@@ -4,7 +4,12 @@ namespace :rvm do
   desc "Install Rvm, Ruby, and the Bundler gem"
   task :install, :roles => :app do
     # "rvm:install_rvm"
-    # run "curl -L https://get.rvm.io | bash -s stable"
+    run "curl -L https://get.rvm.io | bash -s stable"
+    bashrc =<<-BASHRC
+      '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function'
+    BASHRC
+    run "echo #{bashrc} >> ~/.bashrc"
+    run "echo #{bashrc} >> ~/.profile"
     # bashrc = <<-BASHRC
     #  	if [ -d $HOME/.rvm ]; then 
     #    	export PATH="$HOME/.rvm/bin:$PATH" 

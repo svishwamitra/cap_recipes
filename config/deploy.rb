@@ -1,5 +1,5 @@
 require "bundler/capistrano"
-require "rvm/capistrano"
+#require "rvm/capistrano"
 
 load "config/recipes/base"
 load "config/recipes/rvm"
