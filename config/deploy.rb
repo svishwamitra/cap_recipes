@@ -1,26 +1,14 @@
 require "bundler/capistrano"
-#require "rvm/capistrano"
 
-load "config/recipes/base"
-load "config/recipes/rvm"
-load "config/recipes/postgresql"
-load "config/recipes/redis"
-load "config/recipes/passenger"
-load "config/recipes/check"
-load "config/recipes/delayed"
-# load "config/recipes/git"
-# load "config/recipes/nginx"
-# load "config/recipes/unicorn"
+set :stages, %w(ruby basic)
+#set :default_stage, "base"
+require 'capistrano/ext/multistage'
 
-server "ec2-184-72-187-219.compute-1.amazonaws.com", :app, :web
-server "ec2-184-72-187-219.compute-1.amazonaws.com", :db, :primary => true
+server "192.168.167.178", :app, :web
+server "192.168.167.178", :db, :primary => true
 #set :port, 300
 
-#set :rvm_ruby_string, 'ree@rails2.3.14'
-set :rvm_type, :user
-set :rvm_install_with_sudo, true
-
-set :user, "ubuntu"
+set :user, "sachin"
 set :application, "ces"
 set :deploy_to, "/home/#{user}/applications/#{application}"
 set :deploy_via, :remote_cache
@@ -37,7 +25,6 @@ set :branch do
 end
 
 set :whenever_command, "bundle exec whenever ."
-
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
@@ -60,5 +47,3 @@ end
 
 after 'deploy:create_symlink', 'deploy:symlink_shared'
 after "deploy", "deploy:migrate"
-#after "deploy:install", "rvm:install_rvm", "rvm:install_ruby"
-
