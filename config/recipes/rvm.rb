@@ -25,11 +25,13 @@ namespace :rvm do
   
   desc "Install rvm readline package"
   task :install_pkg, :roles => :web do
-    run "rvm pkg install readline"
+    #run "rvm pkg install readline"
   end
 
   desc "Install Ruby"
   task :install_ruby, :roles => :web do 
+    run "source .bashrc"
+    run "source .profile"
   	#run "exec /home/#{user}/.rvm/scripts/rvm"
   	run "rvm install #{ruby_version}"
   end

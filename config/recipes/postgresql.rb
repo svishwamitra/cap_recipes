@@ -1,6 +1,6 @@
 set_default(:postgresql_host, "localhost")
 set_default(:postgresql_user, "postgres")
-set_default(:postgresql_password) { Capistrano::CLI.password_prompt "PostgreSQL Password: " }
+set_default(:postgresql_password, "postgres") #{ Capistrano::CLI.password_prompt "PostgreSQL Password: " }
 set_default(:postgresql_database) { "#{application}_production" }
 
 namespace :postgresql do
@@ -9,6 +9,7 @@ namespace :postgresql do
     #run "#{sudo} add-apt-repository ppa:pitti/postgresql"
     #run "#{sudo} apt-get -y update"
     run "#{sudo} apt-get -y install postgresql libpq-dev"
+    run "#{sudo} apt-get -y install pgadmin3"
   end
   after "deploy:install", "postgresql:install"
 

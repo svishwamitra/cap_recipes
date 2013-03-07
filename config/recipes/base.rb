@@ -17,5 +17,7 @@ namespace :deploy do
 		run "#{sudo} apt-get -y install libxml2 libxml2-dev libxml2-utils libxslt-dev autoconf libc6-dev ncurses-dev automake subversion pkg-config"
     run "#{sudo} apt-get -y install python-software-properties"
     run "#{sudo} apt-get -y install libcurl4-openssl-dev"
+    run "#{sudo} apt-get -y install tidy libtidy-dev libtidy-ruby"
+    run "#{sudo} apt-get -y install default-jdk"
   end
 end

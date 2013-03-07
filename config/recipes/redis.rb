@@ -3,4 +3,6 @@ namespace :redis do
 	task :install, :roles => :web do
 		run "#{sudo} apt-get -y install redis-server"
 	end
+
+	after "deploy:install", "redis:install"
 end
